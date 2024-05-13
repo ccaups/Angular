@@ -7,12 +7,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
+    
     <div ng-app="myApp" ng-controller="myCtrl">
-        <p>The URL of this page is:</p>
-        <h3>{{ myUrl }}</h3>
+        <p>The url of this page is:</p>
+        <h3>{{myUrl}}</h3>
     </div>
+
     <script>
-        var app = angular.module('myApp',[]);
+        var app = angular.module('myApp', []);
         app.controller('myCtrl', function($scope, $location) {
             $scope.myUrl = $location.absUrl();
         });

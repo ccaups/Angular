@@ -9,17 +9,21 @@
 <body>
     <div ng-app="myApp" ng-controller="nameCtrl">
         <p>Nimi on {{lastName | uppercase}}</p>
+
+        <p>Esimene täht on suur ja ülejäänud väiksed.</p>
         <p>Eesnimi on {{firstName[0].toUpperCase() + 
             firstName.substr(1).toLowerCase()}}
         </p>
     </div>
 
-    <p>Angular pakkub filterid andmete kuju muutmiseks:
-        currency,date,filter,json,limitTo,lowercase,number,orderby ja uppercase
+    <p>
+        Angular pakkub filtreid andmete kuju muutmiseks:
+        currency, date, filter, json, limitTo, lowercase,
+        number, orderby ja uppercase.
     </p>
     <script>
-        angular.module('myApp',[]).controller('nameCtrl', function($scope){
-            $scope.firstName = "Kalle",
+        angular.module('myApp', []).controller('nameCtrl', function($scope){
+            $scope.firstName = "kaLLe",
             $scope.lastName = "Smith"
         });
     </script>

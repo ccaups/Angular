@@ -7,18 +7,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
+    
     <div ng-app="myApp" ng-controller="myCtrl">
         <p>The hexadecimal value of 201 is:</p>
-
+        <h1>{{hex}}</h1>       
     </div>
+
+
     <script>
-        var app = angular.module('myApp',[]);
+        var app = angular.module('myApp', []);
 
         app.service('hexadecimal', function() {
-            this.myFuction = function (x) {
-                return x.toString(16)
+            this.myFunction = function (x) {
+                return x.toString(16);
             }
-        app.controller('myctrl',function$scope, hexadecimal)
+        });
+        app.controller('myCtrl', function($scope, hexadecimal) {
+            $scope.hex = hexadecimal.myFunction(201);
+        });
     </script>
 </body>
 </html>

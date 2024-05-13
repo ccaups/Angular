@@ -6,42 +6,43 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
-<body>    
-    <!-- kasutage repeati. -->
-    <!-- iga teine täht on suur täht. -->
-    <div ng-app="myApp" ng-controller="namesCtrl">
-        <ul>
-            <li ng-repeat="name in names">{{ name | myFormat }}</li> 
-        </ul>
-    </div>
+<body>
+    
+    <!-- kasutate repeati ja iga teine t'ht on suur t'ht -->
+    <ul ng-app="myApp" ng-controller="namesCtrl">
+        <li ng-repeat="name in names">
+            {{name | myFormat}}
+        </li>
+    </ul>
 
     <script>
-        var app = angular.module('myApp',[]);
-        app.filter('myFormat',function(){
+        var app = angular.module('myApp', []);
+        app.filter('myFormat', function() {
             return function(x) {
-                var txt = "";
-                for (var i=0; i < x.length;i++){
-                    var c = x[i];
+                var i, c, txt = "";
+                for (i = 0; i < x.length; i++) {
+                    c = x[i];
                     if (i % 2 == 0) {
                         c = c.toUpperCase();
                     }
                     txt += c;
                 }
                 return txt;
-            }
+            };
         });
-        app.controller('namesCtrl', ['$scope', function($scope) {
+        app.controller('namesCtrl', function($scope)
+        {
             $scope.names = [
-                'Jani',
-                'Carl',
-                'Margareth',
-                'Hege',
-                'Joe',
-                'Gustav',
-                'Helen',
+                'Jani', 
+                'Carl', 
+                'Margareth', 
+                'Hege', 
+                'Joe', 
+                'Gustav', 
+                'Helen', 
                 'Henri'
-            ];
-        }]);
+                ];
+        });
     </script>
 </body>
 </html>

@@ -7,17 +7,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
+    
     <div ng-app="myApp" ng-controller="myCtrl">
         <p>Aeg on:</p>
+
         <h1>{{currentTime}}</h1>
     </div>
+
     <script>
-        var app = angular.module('myApp',[]);
+        var app = angular.module('myApp', []);
         app.controller('myCtrl', function($scope, $interval) {
             $scope.currentTime = new Date().toLocaleTimeString();
-            $interval (function(){
-                $scope.currentTime = new Date().toLocaleTimeString();;
-            }, 2);
+            $interval(function () {
+                $scope.currentTime = new Date().toLocaleTimeString();
+            }, 1000);
         });
     </script>
 </body>

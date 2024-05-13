@@ -7,18 +7,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
-    <div ng-app="myApp" ng-controller="nameCtrl">
+    <div ng-app="myApp" ng-controller="namesCtrl">
         <ul>
-            <li ng-repeat="countrie in countries">{{countrie}}</li>
+            <li ng-repeat="name in names | orderBy:'country'">
+                {{ name.name + ', ' + name.country }}
+            </li>
         </ul>
-      </div>
+    </div>
 
     <script>
-        var app= angular.module('myApp',[]);
-        app.controller('nameCtrl', function($scope){
-            $scope.countries = [
-                 Denmark","Margareth, England","Mary,England","Joe,Germany", "Jani, Norway", "Hege,Norway","Kai,Norway","Carl,Sweden","Gustav,Sweden"];
+        angular.module('myApp', []).controller('namesCtrl', function($scope) {
+            $scope.names = [
+                {name:'Jani',country:'Norway'},
+                {name:'Carl',country:'Sweden'},
+                {name:'Margareth',country:'England'},
+                {name:'Hege',country:'Norway'},
+                {name:'Joe',country:'Germany'},
+                {name:'Gustav',country:'Sweden'},
+                {name:'Birgit',country:'Denmark'},
+                {name:'Mary',country:'England'},
+                {name:'Kai',country:'Norway'}
+                ];
         });
-    </script>
+        </script>
 </body>
 </html>
